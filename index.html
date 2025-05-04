@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ocenjujemo filme</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1><a href="index.html" style="color: white; text-decoration: none;">Ocenjujemo filme</a></h1>
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav id="mainNav">
+            <a href="index.php">Filmi</a> |
+            <?php
+                session_start();
+                if (isset($_SESSION['uporabnik_id'])) {
+                    echo "<a href='profil.php'>Profil</a> | <a href='odjava.php'>Odjava</a>";
+                } else {
+                    echo "<a href='registracija.php'>Registracija</a> | <a href='prijava.php'>Prijava</a>";
+                }
+            ?>
+        </nav>
+        <div class="search-bar">
+            <form action="isci.php" method="GET">
+                <input type="text" name="iskalni_niz" placeholder="Išči film...">
+                <button type="submit">Išči</button>
+            </form>
+        </div>
+    </header>
+    <main>
+        <div class="grid-container">
+            <a href="film-podatki.html" class="igralec-kartica">
+                <img src="slike/shrek.jpg" alt="Shrek">
+                <div class="igralec-info">
+                    <h4>Shrek</h4>
+                    <p>2001</p>
+                </div>
+            </a>
+            <a href="#" class="igralec-kartica">
+                <img src="slike/shrek.jpg" alt="Shrek">
+                <div class="igralec-info">
+                    <h4>Shrek</h4>
+                    <p>2001</p>
+                </div>
+            </a>
+            <a href="#" class="igralec-kartica">
+                <img src="slike/shrek.jpg" alt="Shrek">
+                <div class="igralec-info">
+                    <h4>Shrek</h4>
+                    <p>2001</p>
+                </div>
+            </a>
+            <a href="#" class="igralec-kartica">
+                <img src="slike/shrek.jpg" alt="Shrek">
+                <div class="igralec-info">
+                    <h4>Shrek</h4>
+                    <p>2001</p>
+                </div>
+            </a>
+        </div>
+    </main>
+    <script>
+        document.getElementById('hamburgerMenu').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('active');
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Podrobnosti o filmu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1><a href="index.html" style="color: white; text-decoration: none;">Ocenjujemo filme</a></h1>
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav id="mainNav">
+            <a href="index.php">Filmi</a> |
+            <?php
+                session_start();
+                if (isset($_SESSION['uporabnik_id'])) {
+                    echo "<a href='profil.php'>Profil</a> | <a href='odjava.php'>Odjava</a>";
+                } else {
+                    echo "<a href='registracija.php'>Registracija</a> | <a href='prijava.php'>Prijava</a>";
+                }
+            ?>
+        </nav>
+        <div class="search-bar">
+            <form action="isci.php" method="GET">
+                <input type="text" name="iskalni_niz" placeholder="Išči film...">
+                <button type="submit">Išči</button>
+            </form>
+        </div>
+    </header>
+
+    <main>
+        <div class="film-podrobnosti">
+            <div class="grid-podrobnosti">
+                <div class="grid-podrobnosti-item">
+                    <div class="film-slika">
+                        <img src="slike/shrek.jpg" alt="Shrek">
+                    </div>
+                    <div class="film-podatki">
+                        <h2>Shrek</h2>
+                        <div class="sinopsis">
+                            <h3>Sinopsis</h3>
+                            <p>Once upon a time, in a far away swamp, there lived an ogre named Shrek whose precious solitude is suddenly shattered by an invasion of annoying fairy tale characters. They were all banished from their kingdom by the evil Lord Farquaad. Determined to save their home, Shrek makes a deal with Farquaad and sets out to rescue Princess Fiona to be Farquaad's bride.</p>
+                        </div>
+                        <div class="igralci">
+                            <h3>Igralci</h3>
+                            <div class="igralci-grid">
+                                <a href="film-podatki.html" class="igralec-kartica">
+                                    <img src="slike/shrek.jpg" alt="Mike Myers">
+                                    <div class="igralec-info">
+                                        <h4>Mike Myers</h4>
+                                        <p>Shrek</p>
+                                    </div>
+                                </a>
+                                <a href="#" class="igralec-kartica">
+                                    <img src="slike/shrek.jpg" alt="Eddie Murphy">
+                                    <div class="igralec-info">
+                                        <h4>Eddie Murphy</h4>
+                                        <p>Donkey</p>
+                                    </div>
+                                </a>
+                                <a href="#" class="igralec-kartica">
+                                    <img src="slike/shrek.jpg" alt="Cameron Diaz">
+                                    <div class="igralec-info">
+                                        <h4>Cameron Diaz</h4>
+                                        <p>Princess Fiona</p>
+                                    </div>
+                                </a>
+                                <a href="#" class="igralec-kartica">
+                                    <img src="slike/shrek.jpg" alt="John Lithgow">
+                                    <div class="igralec-info">
+                                        <h4>John Lithgow</h4>
+                                        <p>Lord Farquaad</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Ocenjujemo filme. Vse pravice pridržane.</p>
+    </footer>
+    <script>
+        document.getElementById('hamburgerMenu').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('active');
+        });
+    </script>
+</body>
+</html> 
